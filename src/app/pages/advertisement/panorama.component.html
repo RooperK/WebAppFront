@@ -1,0 +1,49 @@
+<div class="container pb-3">
+  <div class="card p-2 pb-4 round shadow">
+
+    <div class="row">
+      <div class="col-6">
+        <div id="player" class="player"></div>
+      </div>
+
+      <div class="col-6 px-5 item-container">
+        <div class="pr-2 py-2">
+          <div class="row justify-content-between flex-row">
+            <h3 class="my-auto">{{panorama.name}}</h3>
+            <div class="row flex-row icon-container">
+              <a [routerLink]="['/edititem', panorama.id]">
+                <i class="fas fa-pencil-alt icon-edit mx-1 shadow-sm" *ngIf="canEdit()"></i>
+              </a>
+              <a (click)="deleteItem()"><i class="fas fa-trash icon-delete mx-1 shadow-sm" *ngIf="canDelete()"></i></a>
+            </div>
+          </div>
+
+          <div class="row justify-content-between my-2">
+            <table class="no-border">
+              <tr>
+                <td class="pr-1"><i class="fas fa-map-marker-alt main-color"></i></td>
+                <td class="px-1 sub-text">{{getPosition()}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="text-center w-100 row align-items-center">
+          <a [routerLink]="['/profile', panorama.user.id]">
+            <div class="py-2 px-4 row bg-white round shadow user-card ml-auto">
+              <img src="{{getAvatar()}}" class="avatar round"/>
+              <h3 class="user-card-name">{{panorama.user.firstName}}</h3>
+              <p *ngIf="panorama.user.phoneNumber">{{panorama.user.phoneNumber}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loading-container" *ngIf="loading">
+  <div class="loading">
+    <span class="spinner-border spinner-border-sm mr-1 spinner"></span>
+  </div>
+</div>

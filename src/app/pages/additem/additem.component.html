@@ -1,0 +1,52 @@
+<form [formGroup]="addItemFormGroup" (ngSubmit)="onSubmit()">
+
+  <div class="container mb-3">
+    <h3 class="my-3">
+      <div *ngIf= "!isEditing;else elseBlock">Добавление панорамы</div>
+      <ng-template #elseBlock>Изменение панорамы</ng-template>
+    </h3>
+
+    <input class="form-control round shadow-sm no-border my-2" id="item_name" type="text" formControlName="item_name"
+           placeholder="Название" [ngClass]="{ 'is-invalid': submitted && f.item_name.errors }" required/>
+    <div *ngIf="submitted && f.item_name.errors" class="invalid-feedback">
+      <div *ngIf="f.item_name.errors.required">Введите название панорамы</div>
+    </div>
+
+    <input class="form-control round shadow-sm no-border w-25 my-2" id="item_positionX" type="text"
+           formControlName="item_positionX" placeholder="Введите координты по X"
+           [ngClass]="{ 'is-invalid': submitted && f.item_price.errors }" required/>
+    <input class="form-control round shadow-sm no-border w-25 my-2" id="item_positionY" type="text"
+           formControlName="item_price" placeholder="Введите координты по Y"
+           [ngClass]="{ 'is-invalid': submitted && f.item_price.errors }" required/>
+    <input class="form-control round shadow-sm no-border w-25 my-2" id="item_positionZ" type="text"
+           formControlName="item_price" placeholder="Введите координты по Z"
+           [ngClass]="{ 'is-invalid': submitted && f.item_price.errors }" required/>
+
+    <div *ngIf="submitted && f.item_positionX.errors" class="invalid-feedback">
+      <div>Неверные координаты</div>
+    </div>
+    <div *ngIf="submitted && f.item_positionY.errors" class="invalid-feedback">
+      <div>Неверные координаты</div>
+    </div>
+    <div *ngIf="submitted && f.item_positionZ.errors" class="invalid-feedback">
+      <div>Неверные координаты</div>
+    </div>
+
+    <h3 class="my-3">Загрузите панораму</h3>
+
+    <app-image-upload #imageUploadComponent [addItemComponent]="this"></app-image-upload>
+
+    <button [disabled]="loading" class="btn round btn-add shadow-sm" *ngIf="!isEditing">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Добавить панораму
+    </button>
+    <button [disabled]="loading" class="btn round btn-add shadow-sm" *ngIf="isEditing">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Изменить панораму
+    </button>
+    <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+
+  </div>
+
+
+</form>

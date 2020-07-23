@@ -1,0 +1,26 @@
+.my-drop-zone {
+  border: dotted 3px lightgray;
+}
+
+.drop-card {
+  background-color: #ffffff;
+  width: 200px;
+  height: 200px;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nv-file-over {
+  border: dotted 3px red;
+  background-color: #f4f4f4;
+}
+
+.another-file-over-class {
+  border: dotted 3px green;
+}
+
+.icon {
+  text-align: center;
+}

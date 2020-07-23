@@ -1,0 +1,21 @@
+<div class="container error-container">
+  <div class="error text-center">
+    <h1 class="text-orange">Ошибка</h1>
+    <span *ngIf="error">{{this.getError()}}</span><br/>
+    <a [routerLink]="['/']">Вернуться на главную страницу.</a>
+    <hr class="m-6 line"/>
+    <div>
+      <a href="https://vk.com/public194327394">
+        <button class="vk btn-circle no-border shadow-sm">
+          <i class="fab fa-vk"></i>
+        </button>
+      </a>
+      <button class="g btn-circle no-border shadow-sm btn-off">
+        <i class="fab fa-google"></i>
+      </button>
+      <button class="fb btn-circle no-border shadow-sm btn-off">
+        <i class="fab fa-facebook-f"></i>
+      </button>
+    </div>
+  </div>
+</div>

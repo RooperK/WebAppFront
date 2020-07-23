@@ -1,0 +1,38 @@
+<div class="row round shadow bg-white card-cont">
+  <a class="text-body" [routerLink]="['/advert', panorama.id]">
+    <div class="row p-3">
+      <img class="image round shadow-sm ml-3" src="{{getPicture()}}">
+      <div class="mx-4 my-auto">
+        <h4>{{panorama.title}}</h4>
+        <table class="no-border table_ad">
+          <tr>
+            <td class="pr-1"><i class="fas fa-bars main-color"></i></td>
+            <td class="px-1 sub-text">{{panorama.category}}</td>
+          </tr>
+          <tr>
+            <td class="pr-1"><i class="fas fa-map-marker-alt main-color"></i></td>
+            <td class="px-1 sub-text">{{panorama.location.city || panorama.location.region || panorama.location.country}}</td>
+          </tr>
+          <tr>
+            <td class="pr-1"><i class="fas fa-calendar-day main-color"></i></td>
+            <td class="px-1 sub-text">{{getDate(panorama.creationTime)}}</td>
+          </tr>
+        </table>
+        <h5 class="mt-2 py-1">{{panorama.price}} ₽</h5>
+      </div>
+    </div>
+  </a>
+
+  <div class="row ml-auto pr-3">
+    <a [routerLink]="['/edititem', panorama.id]">
+      <div class="button-edit" *ngIf="canEdit()">
+        <i class="my-auto fas fa-pencil-alt icon-edit mx-1"></i>
+      </div>
+    </a>
+    <a (click)="deleteItem()">
+      <div class="button-delete" *ngIf="canDelete()">
+        <i class="my-auto fas fa-trash icon-delete mx-1"></i>
+      </div>
+    </a>
+  </div>
+</div>

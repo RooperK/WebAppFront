@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="text-center bg-white round p-3 mx-auto">
+    <h5 *ngIf="confirmed">Ваш электронный адрес подтвержден. Перенаправление на главную страницу...</h5>
+    <h5 *ngIf="error">Ошибка: {{error}}</h5>
+  </div>
+</div>
+
+<div class="loading-container" *ngIf="loading">
+  <div class="loading">
+    <span class="spinner-border spinner-border-sm mr-1 spinner"></span>
+  </div>
+</div>
+

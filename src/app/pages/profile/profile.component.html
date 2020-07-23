@@ -1,0 +1,46 @@
+<div class="container" *ngIf="!loading">
+  <div class="row">
+    <div class="col-3">
+      <div class="round shadow bg-white p-3">
+        <div class="image-container my-2">
+          <img class="image" src="{{getAvatar()}}"/>
+        </div>
+        <span class="name">
+          <span *ngIf="user.email" class="email">
+            {{user.email}}
+          </span>
+        </span>
+        <div class="shadow-sm round button-profile button-edit-profile my-2" *ngIf="isCurrent()">
+          <div class="row mx-auto ">
+            <a class="row mx-auto button-edit-profile" [routerLink]="['/editprofile']">
+              <i class="fas fa-pencil-alt icon-edit mx-1 my-auto"></i>
+              <h5 class="ml-2 my-auto">Изменить</h5>
+            </a>
+          </div>
+        </div>
+        <div class="shadow-sm round button-profile button-delete-profile my-2" style="display: none">
+          <div class="row mx-auto ">
+            <i class="mx-auto fas fa-trash icon-delete mx-1 my-auto"></i>
+            <h5 class="ml-4 my-auto">Удалить</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-9" *ngIf="!loading && panoramas && panoramas.length !== 0">
+      <app-advertisement-long-card *ngFor="let panorama of panoramas" [panorama]="panorama"
+                                   [isCurrUserProfilePage]="isCurrent()"></app-advertisement-long-card>
+    </div>
+    <div class="col-9" *ngIf="!loading && panoramas && panoramas.length === 0">
+      <div class="loading" style="color: #747474 !important;">
+        <h2>Панорам еще нет... <a *ngIf="isCurrent()" style="color: #747474 !important;" [routerLink]="['/additem']">Добавить?</a>
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loading-container" *ngIf="loading">
+  <div class="loading">
+    <span class="spinner-border spinner-border-sm mr-1 spinner"></span>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.input {
+  padding-left: 20px;
+  width: 350px;
+}
+
+.btn-login {
+  background-color: #F2C94C;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: white;
+}
+
+.btn-reg {
+  background-color: #ffffff;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #000000;
+}
+
+.line {
+  background-color: #9b51e0;
+}
+
+.btn-circle {
+  width: 45px;
+  height: 45px;
+  padding: 7px 10px;
+  border-radius: 25px;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 7px;
+}
+
+.header {
+  text-align: center;
+  margin: 15px;
+  color: #9b51e0;
+  font-weight: bold;
+}

@@ -1,0 +1,20 @@
+<div class="container" infiniteScroll (scrolled)="onScroll()" *ngIf="!loading">
+  <div class="row">
+    <div class="dash-col" *ngFor="let panorama of panoramaPreviewModels">
+      <app-panorama-card [panoramaPreviewModel]="panorama"></app-panorama-card>
+    </div>
+  </div>
+</div>
+
+<div class="loading-container" *ngIf="loading">
+  <div class="loading">
+    <span class="spinner-border spinner-border-sm mr-1 spinner"></span>
+  </div>
+</div>
+
+<div class="loading-container" *ngIf="!loading && panoramaPreviewModels && panoramaPreviewModels.length === 0">
+  <div class="loading" style="color: #747474 !important;">
+    <h2>Панорам еще нет... <a style="color: #747474 !important;" [routerLink]="['/additem']">Добавить?</a></h2>
+  </div>
+</div>
+

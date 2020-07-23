@@ -1,0 +1,33 @@
+<div class="">
+  <h2 class="header m-3 my-4">Восстановление пароля</h2>
+  <div class="text-center m-3">
+    <form [formGroup]="resetForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input id="password" type="password" placeholder="Новый пароль" formControlName="password"
+               class="form-control round input shadow-sm" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Введите пароль</div>
+        </div>
+        <small id="passwordHelpBlock" class="form-text text-muted">
+          Пароль должен содержать 8-20 символов
+        </small>
+      </div>
+      <div class="form-group">
+        <input id="confirmPassword" type="password" placeholder="Повторите пароль" formControlName="confirmPassword"
+               class="form-control round input shadow-sm"
+               [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }"/>
+        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+          <div *ngIf="f.confirmPassword.errors.required">Подтвердите пароль</div>
+        </div>
+      </div>
+
+      <button [disabled]="loading" class="btn round btn-login shadow-sm my-4">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Сменить пароль
+      </button>
+      <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+    </form>
+  </div>
+</div>
+
+

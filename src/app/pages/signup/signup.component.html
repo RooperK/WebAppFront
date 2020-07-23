@@ -1,0 +1,56 @@
+<script src='https://raw.githubusercontent.com/candreoliveira/ngMask/master/dist/ngMask.min.js'></script>
+<div class="">
+  <h2 class="header m-3">Регистрация</h2>
+  <div class="text-center m-3">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input id="name" type="text" placeholder="Ваше имя" formControlName="name"
+               class="form-control round input shadow-sm" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"/>
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+          <div *ngIf="f.name.errors.required">Введите ваш логин</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input id="email" type="email" placeholder="Электронная почта" formControlName="email"
+               class="form-control round input shadow-sm" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Введите электронную почту</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input id="password" type="password" placeholder="Пароль" formControlName="password"
+               class="form-control round input shadow-sm" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Введите пароль</div>
+        </div>
+        <small id="passwordHelpBlock" class="form-text text-muted">
+          Пароль должен содержать 8-20 символов
+        </small>
+      </div>
+      <div class="form-group">
+        <input id="confirmPassword" type="password" placeholder="Повторите пароль" formControlName="confirmPassword"
+               class="form-control round input shadow-sm"
+               [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }"/>
+        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+          <div *ngIf="f.confirmPassword.errors.required">Подтвердите пароль</div>
+        </div>
+      </div>
+      <div class="m-2">
+        <re-captcha (resolved)="resolved($event)"
+                    formControlName="recaptchaReactive"
+                    siteKey="{{getSiteKey()}}">
+        </re-captcha>
+        <div *ngIf="submitted && !captcha" class="invalid-feedback">
+          <div *ngIf="f.recaptchaReactive.errors.required">Пройдите проверку reCaptcha</div>
+        </div>
+      </div>
+      <button [disabled]="loading" class="btn round btn-login shadow-sm">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Регистрация
+      </button>
+      <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+    </form>
+  </div>
+</div>
+
+

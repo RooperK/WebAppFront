@@ -1,0 +1,30 @@
+<a [routerLink]="['/advert', panoramaPreviewModel.id]">
+  <div class="card mb-3 shadow text-body">
+    <div class="w-100 round">
+      <div class="image-container">
+        <img class="image mb-2" src="{{getPictureSrc()}}" alt="" (error)="onErrorPicture()">
+      </div>
+      <div class="mx-3 my-2">
+        <h5 class="card-title">{{panoramaPreviewModel.title}}</h5>
+        <table class="no-border table_ad">
+          <tr>
+            <td class="pr-1"><i class="fas fa-bars main-color"></i></td>
+            <td
+              class="px-1 sub-text">{{panoramaPreviewModel.category}}</td>
+          </tr>
+          <tr>
+            <td class="pr-1"><i class="fas fa-map-marker-alt main-color"></i></td>
+            <td
+              class="px-1 sub-text">{{panoramaPreviewModel.location.city || panoramaPreviewModel.location.region || panoramaPreviewModel.location.country}}</td>
+          </tr>
+          <tr>
+            <td class="pr-1"><i class="fas fa-calendar-day main-color"></i></td>
+            <td class="px-1 sub-text">{{getDate(panoramaPreviewModel.creationTime)}}</td>
+          </tr>
+        </table>
+        <h5 class="mt-2 py-1">{{panoramaPreviewModel.price}} ₽</h5>
+      </div>
+    </div>
+  </div>
+</a>
+

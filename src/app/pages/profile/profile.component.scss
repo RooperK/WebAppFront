@@ -1,0 +1,56 @@
+.name {
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+.email {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #323232;
+}
+
+.image {
+  border-radius: 25px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-container {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+}
+
+.button-profile {
+  padding: .5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  display: flex;
+  color: black !important;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a.button-edit-profile:hover {
+  color: white !important;
+}
+
+.button-edit-profile:hover {
+  background-color: #F2C94C;
+  color: white !important;
+}
+
+.button-delete-profile:hover {
+  background-color: #DB4437;
+  color: white;
+}

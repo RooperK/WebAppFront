@@ -1,0 +1,40 @@
+.image {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+}
+
+.card-cont {
+  display: flex;
+  margin: 0 0 0.5rem 0.5rem;
+}
+
+.cont {
+  margin: 0.5rem;
+}
+
+.button-delete {
+  padding-left: .25rem;
+  display: flex;
+  height: 12rem;
+  width: 2rem;
+  border-radius: 0 20px 20px 0;
+}
+
+.button-delete:hover {
+  background-color: #DB4437;
+  color: white;
+}
+
+.button-edit {
+  padding-left: .25rem;
+  display: flex;
+  height: 12rem;
+  width: 2rem;
+  color: black !important;
+}
+
+.button-edit:hover {
+  background-color: #F2C94C;
+  color: white !important;
+}

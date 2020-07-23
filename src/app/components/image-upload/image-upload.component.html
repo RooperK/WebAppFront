@@ -1,0 +1,14 @@
+<div class="my-drop-zone">
+  <div ng2FileDrop class="custom-component-drop-zone"
+       (ng2FileDropHoverStart)="dragFileOverStart()" (ng2FileDropHoverEnd)="dragFileOverEnd()"
+       (ng2FileDropFileAccepted)="dragFileAccepted($event)" (ng2FileDropFileRejected)="dragFileRejected($event)">
+  </div>
+  <div ng2FileDrop class="custom-component-drop-zone"
+
+       [ng2FileDropAcceptMultiple]="true"
+
+       (ng2FileDropHoverStart)="dragFileOverStart()" (ng2FileDropHoverEnd)="dragFileOverEnd()"
+       (ng2FileDropFilesDropped)="dragFilesDropped($event)">
+  </div>
+</div>
+

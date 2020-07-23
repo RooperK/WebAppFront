@@ -1,0 +1,40 @@
+.bg-footer-image {
+  background-image: url("/assets/footer.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 85px;
+  display: flex;
+  width: 100%;
+  background-position: top;
+  padding: 0 13px;
+}
+
+.nav-foot {
+  display: flex;
+  align-items: center;
+}
+
+a:visited {
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #d3d3d3;
+}
+
+@media only screen and (max-width: 900px) {
+  .hide_900 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .hide_500 {
+    display: none;
+  }
+}

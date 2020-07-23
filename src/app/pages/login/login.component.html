@@ -1,0 +1,47 @@
+<div class="">
+  <h2 class="header m-3">Вход</h2>
+  <div class="text-center m-3">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input id="username" type="text" placeholder="Логин" formControlName="username"
+               class="form-control round input shadow-sm" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">Введите логин</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input id="password" type="password" placeholder="Пароль" formControlName="password"
+               class="form-control round input shadow-sm" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Введите пароль</div>
+        </div>
+      </div>
+      <div class="my-3">
+        <a [routerLink]="['/getrestore']" style="color: #747474">Забыли пароль?</a>
+      </div>
+      <div>
+        <button [disabled]="loading" class="btn round btn-login shadow-sm mr-2">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Войти
+        </button>
+      </div>
+      <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+    </form>
+    <div class="text-center m-3">
+      <hr class="m-3 line"/>
+      войти через социальные сети
+    </div>
+    <div>
+      <button class="vk btn-circle no-border shadow-sm" (click)="loginVk()">
+        <i class="fab fa-vk"></i>
+      </button>
+      <button class="g btn-circle no-border shadow-sm" (click)="loginGoogle()">
+        <i class="fab fa-google"></i>
+      </button>
+      <button class="fb btn-circle no-border shadow-sm" (click)="loginFacebook()">
+        <i class="fab fa-facebook-f"></i>
+      </button>
+    </div>
+  </div>
+</div>
+

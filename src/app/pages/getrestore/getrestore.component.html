@@ -1,0 +1,21 @@
+<div class="">
+  <h2 class="header m-3">Восстановление пароля</h2>
+  <div class="text-center m-3">
+    <form [formGroup]="restoreForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input id="email" type="text" placeholder="E-mail" formControlName="email"
+               class="form-control round input shadow-sm" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Введите e-mail</div>
+        </div>
+      </div>
+
+      <button [disabled]="loading" class="btn round btn-login shadow-sm">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Восстановить пароль
+      </button>
+      <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+    </form>
+  </div>
+</div>
+

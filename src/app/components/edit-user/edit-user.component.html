@@ -1,0 +1,35 @@
+<script src='https://raw.githubusercontent.com/candreoliveira/ngMask/master/dist/ngMask.min.js'></script>
+<div class="">
+  <h2 class="header m-3">Изменение профиля</h2>
+  <div class="text-center m-3">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input id="name" type="text" placeholder="Ваше имя" formControlName="name"
+               class="form-control round input shadow-sm" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"/>
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+          <div *ngIf="f.name.errors.required">Введите ваше имя</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input id="surname" type="text" placeholder="Ваша фамилия" formControlName="surname"
+               class="form-control round input shadow-sm" [ngClass]="{ 'is-invalid': submitted && f.surname.errors }"/>
+        <div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
+          <div *ngIf="f.surname.errors.required">Введите вашу фамилию</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input id="phone" type="text" mask="(000) 000-00-00" prefix="+7 " [showMaskTyped]="true"
+               placeHolderCharacter="_" placeholder="Номер телефона" formControlName="phone"
+               class="form-control round input shadow-sm"/>
+      </div>
+      <app-image-upload #imageUploadComponent [editUserComponent]="this"></app-image-upload>
+      <button [disabled]="loading" class="btn round btn-login shadow-sm">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Изменить
+      </button>
+      <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+    </form>
+  </div>
+</div>
+
+
